@@ -1,6 +1,6 @@
 // One blog post, read live from Wix Blog by its slug (post.html?slug=...).
-import { createPostStore } from "/plumbing-toronto/js/wix/post-store.js";
-import { esc, postCard, sized } from "/plumbing-toronto/js/cards.js";
+import { createPostStore } from "/js/wix/post-store.js";
+import { esc, postCard, sized } from "/js/cards.js";
 
 const slug = new URLSearchParams(location.search).get("slug") || "";
 const titleEl = document.querySelector("[data-post-title]");
@@ -18,17 +18,22 @@ function render(s) {
   if (s.notFound || (!slug && !s.post)) {
     document.title = "Post not found | Plumbing Toronto";
     titleEl.textContent = "This post does not exist";
-    bodyEl.innerHTML = '<p>It may have been moved or unpublished. <a href="/plumbing-toronto/blog.html">See all posts</a>.</p>';
+    bodyEl.innerHTML = '<p>It may have been moved or unpublished. <a href="/blog">See all posts</a>.</p>';
     return;
   }
   if (!s.post) {
     titleEl.textContent = s.error ? "The post could not be loaded" : "Loading post…";
-    if (s.error) bodyEl.innerHTML = '<p>Please refresh the page, or <a href="/plumbing-toronto/blog.html">go back to the blog</a>.</p>';
+    if (s.error) bodyEl.innerHTML = '<p>Please refresh the page, or <a href="/blog">go back to the blog</a>.</p>';
     return;
   }
   const p = s.post;
   document.title = `${p.seoTitle || p.title} | Plumbing Toronto`;
   if (metaDesc && p.seoDescription) metaDesc.setAttribute("content", p.seoDescription.slice(0, 160));
+  if (!document.querySelector('meta[name="robots"][content*="noindex"]')) {
+    let canon = document.querySelector('link[rel="canonical"]');
+    if (!canon) { canon = document.createElement("link"); canon.rel = "canonical"; document.head.appendChild(canon); }
+    canon.href = location.origin + location.pathname + "?slug=" + encodeURIComponent(p.slug);
+  }
   titleEl.textContent = p.title;
   catsEl.textContent = s.categories.map((c) => c.label).join(" · ");
   const bits = [];

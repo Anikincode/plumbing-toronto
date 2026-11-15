@@ -1,6 +1,6 @@
 // Blog listing on the Wix Blog feed store: topic filter, cards, load more.
-import { createBlogFeedStore } from "/plumbing-toronto/js/wix/blog-feed-store.js";
-import { esc, postCard } from "/plumbing-toronto/js/cards.js";
+import { createBlogFeedStore } from "/js/wix/blog-feed-store.js";
+import { esc, postCard } from "/js/cards.js";
 
 const chips = document.querySelector("[data-categories]");
 const status = document.querySelector("[data-status]");

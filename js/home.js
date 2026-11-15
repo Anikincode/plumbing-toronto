@@ -1,7 +1,7 @@
 // Home: the three latest posts from Wix Blog. The section stays hidden when there are none or the read fails.
-import { fetchPosts } from "/plumbing-toronto/js/wix/posts.js";
-import { fetchBlogCategories } from "/plumbing-toronto/js/wix/taxonomy.js";
-import { postCard } from "/plumbing-toronto/js/cards.js";
+import { fetchPosts } from "/js/wix/posts.js";
+import { fetchBlogCategories } from "/js/wix/taxonomy.js";
+import { postCard } from "/js/cards.js";
 
 const section = document.getElementById("latest-posts");
 const grid = section && section.querySelector("[data-posts]");

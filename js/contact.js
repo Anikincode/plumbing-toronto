@@ -1,7 +1,7 @@
 // The free-quote form, driven by the Wix Forms store. The fields come from the form's schema
 // (edit them in the Wix dashboard); no field is named here.
-import { createFormStore, FORM_ERROR, otherText, otherValue } from "/plumbing-toronto/js/wix/form-store.js";
-import { esc } from "/plumbing-toronto/js/cards.js";
+import { createFormStore, FORM_ERROR, otherText, otherValue } from "/js/wix/form-store.js";
+import { esc } from "/js/cards.js";
 
 const root = document.getElementById("quote-form");
 const store = createFormStore({ formId: root.dataset.formId });

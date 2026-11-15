@@ -1,3 +1,3 @@
-# Plumbing Toronto: website preview
+# Plumbing Toronto
 
-Built from `clients/plumbing-toronto/pages/wix-site` (build.py). Every page is noindex. The live site is still https://www.plumbingtoronto.ca.
+https://www.plumbingtoronto.ca/ on GitHub Pages. Built from `clients/plumbing-toronto/pages/wix-site` (build.py); the quote form and the blog are read live from Wix.

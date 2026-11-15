@@ -11,7 +11,7 @@ export function sized(url, w, h) {
 }
 
 export function postHref(slug) {
-  return "/plumbing-toronto/post.html?slug=" + encodeURIComponent(slug);
+  return "/post.html?slug=" + encodeURIComponent(slug);
 }
 
 export function postCard(p, categoryLabel) {
